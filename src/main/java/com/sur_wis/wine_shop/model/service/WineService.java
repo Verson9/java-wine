@@ -23,7 +23,7 @@ public class WineService {
         this.wineRepository = wineRepository;}
 
     public List<WineDto> getAllWinesDto() {
-        List<WineEntity> wineEntities = wineRepository.findAll();
+        List<WineEntity> wineEntities = wineRepository.getAll();
         return WineMapper.INSTANCE.entityToDtoList(wineEntities);
     }
 

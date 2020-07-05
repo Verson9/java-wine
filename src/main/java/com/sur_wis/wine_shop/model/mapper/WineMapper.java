@@ -10,9 +10,10 @@ import java.util.List;
 
 @Mapper
 public interface WineMapper {
-    static WineMapper INSTANCE = Mappers.getMapper(WineMapper.class);
+    WineMapper INSTANCE = Mappers.getMapper(WineMapper.class);
+
 
     WineDto entityToDto(WineEntity wineEntity);
-    List<WineDto> entityToDtoList(List<WineEntity>wines);
+    List<WineDto> entityToDtoList(List<WineEntity> wines);
     WineEntity DtoToEntity(WineDto wineDto);
 }

@@ -3,13 +3,18 @@ package com.sur_wis.wine_shop.main.testapp;
 import com.sur_wis.wine_shop.model.dto.AccessoryDto;
 import com.sur_wis.wine_shop.model.dto.ProductDto;
 import com.sur_wis.wine_shop.model.dto.WineDto;
+import com.sur_wis.wine_shop.model.mapper.WineMapper;
 import com.sur_wis.wine_shop.model.service.WineService;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.management.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class WineShopApp {
+    @Autowired
+            WineService service;
 
     List<ProductDto> productList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -112,8 +117,9 @@ public class WineShopApp {
             if (wine instanceof WineDto)
                 System.out.println(j++ + ". " + wine.toString());
         }
-        System.out.println("----------Wyświetlanie win z bazy danych----------");
-        List<WineDto> wines = new ArrayList<>();
+        System.out.println("\n" +
+                "----------Wyświetlanie win z bazy danych----------");
+        List<WineDto> wines = service.getAllWinesDto();
         for (WineDto wine:wines) {
             System.out.println(wine.toString());
         }

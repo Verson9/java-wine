@@ -12,4 +12,6 @@ public interface WineRepository extends JpaRepository<WineEntity, Long> {
 
     void deleteById(Long aLong);
 
+    List<WineEntity> getAll();
+
 }
