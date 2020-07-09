@@ -1,6 +1,6 @@
-package com.sur_wis.wine_shop.main;
+package com.sur_wis.wine_shop;
 
-import com.sur_wis.wine_shop.main.testapp.WineShopApp;
+import com.sur_wis.wine_shop.testapp.WineShopApp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
