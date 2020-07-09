@@ -1,20 +1,23 @@
 package com.sur_wis.wine_shop.main.testapp;
 
+import com.sur_wis.wine_shop.controller.WineController;
 import com.sur_wis.wine_shop.model.dto.AccessoryDto;
 import com.sur_wis.wine_shop.model.dto.ProductDto;
 import com.sur_wis.wine_shop.model.dto.WineDto;
 import com.sur_wis.wine_shop.model.mapper.WineMapper;
 import com.sur_wis.wine_shop.model.service.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.management.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class WineShopApp {
     @Autowired
-            WineService service;
+    WineController wineController;
 
     List<ProductDto> productList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -106,7 +109,7 @@ public class WineShopApp {
         int wineYear = Integer.parseInt(sc.nextLine());
         WineDto newWine = new WineDto(wineName, wineDescription, winePrice, wineColor, wineCountry,wineRegion,wineTaste, wineYear);
         productList.add(newWine);
-//        WineService.saveWine(newWine);
+        wineController.addWine(newWine);
         app();
     }
 
@@ -119,7 +122,7 @@ public class WineShopApp {
         }
         System.out.println("\n" +
                 "----------Wyświetlanie win z bazy danych----------");
-        List<WineDto> wines = service.getAllWinesDto();
+        List<WineDto> wines = WineMapper.INSTANCE.entityToDtoList(wineController.getAllWines());
         for (WineDto wine:wines) {
             System.out.println(wine.toString());
         }

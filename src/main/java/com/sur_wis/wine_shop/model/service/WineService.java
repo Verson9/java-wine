@@ -5,14 +5,9 @@ import com.sur_wis.wine_shop.model.entity.WineEntity;
 import com.sur_wis.wine_shop.model.mapper.WineMapper;
 import com.sur_wis.wine_shop.model.repository.WineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WineService {
@@ -23,7 +18,7 @@ public class WineService {
         this.wineRepository = wineRepository;}
 
     public List<WineDto> getAllWinesDto() {
-        List<WineEntity> wineEntities = wineRepository.getAll();
+        List<WineEntity> wineEntities = wineRepository.findAll();
         return WineMapper.INSTANCE.entityToDtoList(wineEntities);
     }
 
