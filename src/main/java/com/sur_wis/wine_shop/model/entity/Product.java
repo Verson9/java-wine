@@ -1,9 +1,11 @@
 package com.sur_wis.wine_shop.model.entity;
 
+import com.sur_wis.wine_shop.model.repository.ProductRepository;
+
 import javax.persistence.*;
 
 @Entity( name = "products" )
-@EntityListeners( WineRepository.class )
+@EntityListeners( ProductRepository.class )
 public class Product {
     String name;
     @Id

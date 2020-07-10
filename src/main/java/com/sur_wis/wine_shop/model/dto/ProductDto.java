@@ -12,7 +12,7 @@ public class ProductDto {
         this.name = name;
     }
 
-    public ProductDto(String name, String type, String description, Integer price) {
+    public ProductDto(String name) {
         this.name = name;
     }
 
