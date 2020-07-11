@@ -22,7 +22,7 @@ public class ProductController {
     @GetMapping( "/product/{id}" )
     public Product show(@PathVariable String id) {
         int productId = Integer.parseInt(id);
-        return productRepository.findOne(productId);
+        return productRepository.findOne(productId).ifPresent(s -> s.getClass(Product));
     }
 
     @PostMapping( "/product" )
