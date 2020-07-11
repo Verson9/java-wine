@@ -1,8 +1,6 @@
 package com.sur_wis.wine_shop.model.entity;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -11,15 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity( name = "product" )
-@Getter
-@Setter
 @NoArgsConstructor
 @ToString
 public class Product {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    private Integer id;
+    Integer id;
 
     String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

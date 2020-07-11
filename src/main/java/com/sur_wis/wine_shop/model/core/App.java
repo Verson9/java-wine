@@ -1,5 +1,6 @@
 package com.sur_wis.wine_shop.model.core;
 
+import com.sur_wis.wine_shop.model.controller.ProductController;
 import com.sur_wis.wine_shop.model.dto.ProductDto;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,7 @@ import java.util.Scanner;
 
 @Component
 public class App {
+    ProductController productController = new ProductController();
 
     List<ProductDto> productList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -40,6 +42,9 @@ public class App {
         System.out.println("Podaj nazwę produktu");
         String productName = sc.nextLine();
         ProductDto newProduct = new ProductDto(productName);
+        productList.add(newProduct);
+//        productController.create(productName);
+        app();
     }
 
     private void deleteProduct() {
@@ -51,6 +56,7 @@ public class App {
         System.out.print("Wprowadź numer produktu który chcesz usunąć");
         int productToDelete = Integer.parseInt(sc.nextLine());
         productList.remove(productToDelete - 1);
+//        productController.delete(String.valueOf(productToDelete-1));
         displayProduct();
     }
 
@@ -60,10 +66,12 @@ public class App {
         for (ProductDto product : productList) {
             System.out.println(j++ + ". " + product.toString());
         }
-        for (ProductDto product :
-        ) {
-
-        }
+        int z = 1;
+//        List<ProductDto> dtoList = ProductMapper.INSTANCE.listedEntityToDto(productController.index());
+//        System.out.println("----------Wyświetlanie produktów----------");
+//        for (ProductDto product : productList) {
+//            System.out.println(z++ + ". " + dtoList.toString());
+//        }
         app();
     }
 }

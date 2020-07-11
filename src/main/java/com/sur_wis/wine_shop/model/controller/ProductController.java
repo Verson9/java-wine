@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
+@RequestMapping( "/products" )
 public class ProductController {
     @Autowired
     ProductRepository productRepository;
@@ -19,32 +19,40 @@ public class ProductController {
         return productRepository.findAll();
     }
 
+    @GetMapping( "/product1" )
+    public String index1() {
+        List<Product> products = productRepository.findAll();
+        for (Product p : products) {
+            System.out.println(p.toString());
+        }
+        return "product";
+    }
+
     @GetMapping( "/product/{id}" )
     public Product show(@PathVariable String id) {
         int productId = Integer.parseInt(id);
-        return productRepository.findOne(productId).ifPresent(s -> s.getClass(Product));
+        return productRepository.getById(productId);
     }
 
-    @PostMapping( "/product" )
-    public Product create(@RequestBody String name) {
+    @PostMapping( "/addProduct" )
+    public Product create(@RequestParam String name) {
         Product newProduct = new Product();
         newProduct.setName(name);
         return productRepository.save(newProduct);
     }
 
     @PutMapping( "/product/{id}" )
-    public Product update(@PathVariable String id, @RequestBody Map<String, String> body) {
-        int blogId = Integer.parseInt(id);
-        Product product = productRepository.findOne(blogId);
-        product.setTitle(body.get("title"));
-        blog.setContent(body.get("content"));
-        return blogRespository.save(blog);
+    public Product update(@PathVariable String id, @RequestParam String name) {
+        int productId = Integer.parseInt(id);
+        Product product = productRepository.getById(productId);
+        product.setName(name);
+        return productRepository.save(product);
     }
 
     @DeleteMapping( "product/{id}" )
     public boolean delete(@PathVariable String id) {
         int productId = Integer.parseInt(id);
-        productRepository.delete(productId);
+        productRepository.deleteById(productId);
         return true;
     }
 }

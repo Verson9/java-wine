@@ -18,4 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Override
     <S extends Product> S save(S s);
+
+    Product getById(Integer id);
 }

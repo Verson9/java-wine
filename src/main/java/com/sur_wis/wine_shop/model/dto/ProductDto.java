@@ -32,4 +32,11 @@ public class ProductDto {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
