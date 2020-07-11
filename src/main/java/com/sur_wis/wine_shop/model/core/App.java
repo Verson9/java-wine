@@ -60,6 +60,10 @@ public class App {
         for (ProductDto product : productList) {
             System.out.println(j++ + ". " + product.toString());
         }
+        for (ProductDto product :
+        ) {
+
+        }
         app();
     }
 }
