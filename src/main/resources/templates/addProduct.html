@@ -6,9 +6,11 @@
 </head>
 <body>
 <label>
-    Name:
-    <input name="name" placeholder="name" type="text">
-    <input type="submit"><a ${name}="name" href="/addProduct" type="submit">here</a>
+    <form action="/addProduct">
+            Name:
+        <input name="name" placeholder="name" type="text">
+        <input type="submit"><a ${name}="name" type="submit">here</a>
+    </form>
 </label>
 
 </body>

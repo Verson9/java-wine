@@ -29,7 +29,7 @@ public class ProductController {
         return "showProducts";
     }
 
-    @PostMapping( "/addProduct" )
+    @GetMapping( "/addProduct" )
     public String create(@RequestParam String name) {
         ProductDto newProduct = new ProductDto();
         newProduct.setName(name);
