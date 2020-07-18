@@ -1,7 +1,10 @@
 package com.sur_wis.wine_shop.model.entity;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,27 +14,13 @@ import javax.persistence.Id;
 @Entity( name = "product" )
 @NoArgsConstructor
 @ToString
+@Setter
+@Getter
 public class Product {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    Integer id;
+    Long id;
 
     String name;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

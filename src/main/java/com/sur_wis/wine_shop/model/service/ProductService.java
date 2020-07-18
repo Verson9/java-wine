@@ -5,13 +5,16 @@ import com.sur_wis.wine_shop.model.entity.Product;
 import com.sur_wis.wine_shop.model.mapper.ProductMapper;
 import com.sur_wis.wine_shop.model.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableJpaRepositories
 public class ProductService {
+
     @Autowired
     private ProductRepository productRepository;
 
