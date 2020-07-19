@@ -1,6 +1,6 @@
 package com.sur_wis.wine_shop.controller;
 
-import com.sur_wis.wine_shop.model.dto.RegisterUser;
+import com.sur_wis.wine_shop.model.dto.UserDto;
 import com.sur_wis.wine_shop.model.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class RegistrationController {
+public class UserController {
 
     @Autowired
     private UsersService usersService;
@@ -20,8 +20,8 @@ public class RegistrationController {
     }
 
     @PostMapping(value = "/registerUser")
-    public String register(@ModelAttribute RegisterUser registerUser) {
-        usersService.register(registerUser);
+    public String register(@ModelAttribute UserDto userDto) {
+        usersService.register(userDto);
         return "redirect:/register";
     }
 }

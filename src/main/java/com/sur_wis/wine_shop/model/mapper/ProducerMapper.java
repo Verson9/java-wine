@@ -1,7 +1,7 @@
 package com.sur_wis.wine_shop.model.mapper;
 
-import com.sur_wis.wine_shop.model.dto.ProductDto;
-import com.sur_wis.wine_shop.model.entity.Product;
+import com.sur_wis.wine_shop.model.dto.WineDto;
+import com.sur_wis.wine_shop.model.entity.Wine;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -11,9 +11,9 @@ import java.util.List;
 public interface ProducerMapper {
     ProducerMapper INSTANCE = Mappers.getMapper(ProducerMapper.class);
 
-    ProductDto entityToDto(Product product);
+    WineDto entityToDto(Wine wine);
 
-    Product dtoToEntity(ProductDto dto);
+    Wine dtoToEntity(WineDto dto);
 
-    List<ProductDto> listedEntityToDto(List<Product> products);
+    List<WineDto> listedEntityToDto(List<Wine> wines);
 }
