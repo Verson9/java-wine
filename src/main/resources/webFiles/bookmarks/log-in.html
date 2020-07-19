@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie do sklepu</title>
+</head>
+<body>
+
+<form>
+    <label for="login">Login</label>
+    <input id="login">
+    <br>
+    <label for="password">Hasło</label>
+    <input id="password" type="text">
+    <br>
+    <button type="submit">Zaloguj</button>
+</form>
+<div id="nav-placeholder">
+</div>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navigationBar.html");
+    });
+</script>
+</body>
+</html>

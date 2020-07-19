@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+
+<form>
+    <label for="login">Login:</label>
+    <input id="login">
+    <br>
+    <label for="password">Hasło:</label>
+    <input id="password" type="text">
+    <br>
+    <label for="repeat-password">Powtórz hasło:</label>
+    <input id="repeat-password" type="text">
+    <br>
+    <label for="name">Imię:</label>
+    <input id="name">
+    <br>
+    <label for="surname">Nazwisko:</label>
+    <input id="surname">
+    <br>
+    Płeć:
+    <br>
+    <input type="radio" name="gender" value="male" />Mężczyzna
+    <br>
+    <input type="radio" name="gender" value="female" />Kobieta
+    <br>
+    Data urodzin:
+    <br>
+    <field id="birth-date">
+        <label for="birthday_day" class="offset">Dzień:</label>
+        <input type="text" name="birthday_day" id="birthday_day" size="2" maxlength="2" value="" />
+
+        <label for="birthday_month" class="offset">Miesiąc</label>
+        <input type="text" name="birthday_month" id="birthday_month" size="2" maxlength="2" value="" />
+
+        <label for="birthday_year" class="offset">Rok</label>
+        <input type="text" name="birthday_year" id="birthday_year" size="4" maxlength="4" value="" />
+    </field>
+<!--    <form class = "container">-->
+
+<!--        <label >Data urodzin:</label>-->
+<!--        <SELECT id ="year" name = "yyyy" onchange="change_year(this)">-->
+<!--        </SELECT>-->
+<!--        <SELECT  id ="month" name = "mm" onchange="change_month(this)">-->
+<!--        </SELECT>-->
+<!--        <SELECT id ="day" name = "dd" >-->
+<!--        </SELECT>-->
+<!--        <script src="..\script\date-of-birth.js"></script>-->
+<!--    </form>-->
+    <br>
+    <button type="submit">Zarejestruj</button>
+</form>
+<div id="nav-placeholder">
+</div>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navigationBar.html");
+    });
+</script>
+</body>
+</html>

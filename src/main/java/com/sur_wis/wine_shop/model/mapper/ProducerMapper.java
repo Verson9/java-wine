@@ -8,8 +8,8 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface ProductMapper {
-    ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
+public interface ProducerMapper {
+    ProducerMapper INSTANCE = Mappers.getMapper(ProducerMapper.class);
 
     ProductDto entityToDto(Product product);
 

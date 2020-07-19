@@ -1,0 +1,11 @@
+div.picture1
+{
+    /*background-image: url("../images/pink_wine.jpg");*/
+    position: center;
+    display: flex;
+    flex-flow: column-reverse wrap;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
