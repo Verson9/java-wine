@@ -15,35 +15,35 @@ public class WineController {
     @Autowired
     private WinesService winesService;
 
-    @GetMapping( "/showProducts" )
+    @GetMapping( "/showWines" )
     public String showProducts(Model model) {
         List<WineDto> products = winesService.getWinesList();
-        model.addAttribute("showProducts", products);
-        return "/showProducts";
+        model.addAttribute("/showWines", products);
+        return "/showWines";
     }
 
-    @GetMapping( "/showProducts/{id}" )
+    @GetMapping( "/showWines/{id}" )
     public String showProductsById(Model model, @PathVariable Long id) {
         WineDto product = winesService.getOneWine(id);
-        model.addAttribute("showProducts", product);
-        return "/showProducts";
+        model.addAttribute("/showWines", product);
+        return "/showWines";
     }
 
-    @GetMapping( "/addProduct" )
+    @GetMapping( "/addWine" )
     public String create(@ModelAttribute WineDto wineDto) {
         winesService.saveWine(wineDto);
-        return "redirect:showProducts";
+        return "redirect:/showWines";
     }
 
-    @PutMapping( "/updateProduct/{id}" )
+    @PutMapping( "/updateWine/{id}" )
     public String update(@ModelAttribute WineDto oldWine, @ModelAttribute WineDto newWine) {
-        WineDto product = winesService.updateWine(oldWine.getId(), newWine);
-        return "redirect:/showProducts";
+        winesService.updateWine(oldWine.getId(), newWine);
+        return "redirect:/showWines";
     }
 
-    @DeleteMapping( "/deleteProduct/{id}" )
+    @DeleteMapping( "/deleteWine/{id}" )
     public String delete(@ModelAttribute WineDto wine) {
         winesService.deleteProduct(wine.getId());
-        return "/showProducts";
+        return "/showWines";
     }
 }

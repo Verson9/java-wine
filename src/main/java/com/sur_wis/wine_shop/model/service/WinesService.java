@@ -2,42 +2,40 @@ package com.sur_wis.wine_shop.model.service;
 
 import com.sur_wis.wine_shop.model.dto.WineDto;
 import com.sur_wis.wine_shop.model.entity.Wine;
-import com.sur_wis.wine_shop.model.mapper.ProducerMapper;
 import com.sur_wis.wine_shop.model.mapper.WineMapper;
-import com.sur_wis.wine_shop.model.repository.WineRepository;
+import com.sur_wis.wine_shop.model.repository.WinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @EnableJpaRepositories
 public class WinesService {
 
     @Autowired
-    private WineRepository wineRepository;
+    private WinesRepository winesRepository;
 
     @Autowired
     private WineMapper wineMapper;
 
 
     public WineDto getOneWine(Long id) {
-        Wine wine = wineRepository.getOne(id);
+        Wine wine = winesRepository.getOne(id);
         WineDto wineDto = wineMapper.entityToDtoMapping(wine);
         return wineDto;
     }
 
     public List<WineDto> getWinesList() {
-        List<Wine> wines = wineRepository.findAll();
+        List<Wine> wines = winesRepository.findAll();
         List<WineDto> wineDtos = wineMapper.listOfEntityToDtoMapping(wines);
         return wineDtos;
     }
 
     public void saveWine(WineDto wineDto) {
         Wine newWine = wineMapper.dtoToEntityMapping(wineDto);
-        wineRepository.save(newWine);
+        winesRepository.save(newWine);
     }
 
     public WineDto updateWine(Long id, WineDto newWineData) {
@@ -52,6 +50,6 @@ public class WinesService {
     }
 
     public void deleteProduct(long id) {
-        wineRepository.deleteById(id);
+        winesRepository.deleteById(id);
     }
 }
