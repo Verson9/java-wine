@@ -17,33 +17,33 @@ public class AccessoryController {
     private AccessoriesService accessoriesService;
 
     @GetMapping( "/showAccessories" )
-    public String showProducts(Model model) {
+    public String showAccessories(Model model) {
         List<AccessoryDto> accessoryDtos = accessoriesService.getAccessoriesList();
         model.addAttribute("showProducts", accessoryDtos);
-        return "/showAccessories";
+        return "redirect:/showAccessories";
     }
 
     @GetMapping( "/showAccessories/{id}" )
-    public String showProductsById(Model model, @PathVariable Long id) {
+    public String showAccessoryById(Model model, @PathVariable Long id) {
         AccessoryDto accessory = accessoriesService.getOneAccessory(id);
         model.addAttribute("showProducts", accessory);
         return "redirect:/showAccessories";
     }
 
-    @GetMapping( "/addWine" )
-    public String create(@ModelAttribute AccessoryDto accessoryDto) {
+    @GetMapping( "/addAccessory" )
+    public String createAccessory(@ModelAttribute AccessoryDto accessoryDto) {
         accessoriesService.saveAccessory(accessoryDto);
         return "redirect:/showAccessories";
     }
 
     @PutMapping( "/updateAccessory/{id}" )
-    public String update(@ModelAttribute AccessoryDto oldAccessory, @ModelAttribute AccessoryDto newAccessory) {
+    public String updateAccessory(@ModelAttribute AccessoryDto oldAccessory, @ModelAttribute AccessoryDto newAccessory) {
         accessoriesService.updateAccessory(oldAccessory.getId(), newAccessory);
         return "redirect:/showAccessories";
     }
 
     @DeleteMapping( "/deleteAccessory/{id}" )
-    public String delete(@ModelAttribute AccessoryDto accessoryDto) {
+    public String deleteAccessory(@ModelAttribute AccessoryDto accessoryDto) {
         accessoriesService.deleteAccessory(accessoryDto.getId());
         return "redirect:/showAccessories";
     }

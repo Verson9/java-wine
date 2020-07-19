@@ -30,10 +30,10 @@ public class UserController {
         return "log-in";
     }
 
-    @PostMapping(value = "/registerUser")
+    @PostMapping(value = "/loginUser")
     public String login(@ModelAttribute UserDto userDto) {
         usersService.register(userDto);
-        return "redirect:";
+        return "redirect:/index1.html";
     }
 
 

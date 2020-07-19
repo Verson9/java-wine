@@ -39,14 +39,14 @@ public class WinesService {
     }
 
     public WineDto updateWine(Long id, WineDto newWineData) {
-        WineDto wineToUpdate = getOneWine(id);
+        Wine wineToUpdate = winesRepository.getOne(id);
         wineToUpdate.setName(newWineData.getName());
         wineToUpdate.setDescription(newWineData.getDescription());
         wineToUpdate.setRegion(newWineData.getRegion());
         wineToUpdate.setCountry(newWineData.getCountry());
         wineToUpdate.setPrice(newWineData.getPrice());
-        saveWine(wineToUpdate);
-        return wineToUpdate;
+        winesRepository.save(wineToUpdate);
+        return wineMapper.entityToDtoMapping(wineToUpdate);
     }
 
     public void deleteProduct(long id) {
