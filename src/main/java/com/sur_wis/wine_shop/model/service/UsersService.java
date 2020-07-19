@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sur_wis.wine_shop.model.dto.RegisterUser;
 import com.sur_wis.wine_shop.model.entity.Users;
 import com.sur_wis.wine_shop.model.repository.UsersRepository;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
