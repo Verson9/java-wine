@@ -15,13 +15,24 @@ public class UserController {
     private UsersService usersService;
 
     @GetMapping(value = "/register")
-    public String view() {
+    public String registration() {
         return "registration-form";
     }
 
     @PostMapping(value = "/registerUser")
     public String register(@ModelAttribute UserDto userDto) {
         usersService.register(userDto);
-        return "redirect:/register";
+        return "redirect:";
+    }
+
+    @GetMapping(value = "/login")
+    public String loginion() {
+        return "log-in";
+    }
+
+    @PostMapping(value = "/registerUser")
+    public String login(@ModelAttribute UserDto userDto) {
+        usersService.register(userDto);
+        return "redirect:";
     }
 }

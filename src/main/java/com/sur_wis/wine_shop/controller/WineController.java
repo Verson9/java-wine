@@ -19,14 +19,14 @@ public class WineController {
     public String showProducts(Model model) {
         List<WineDto> products = winesService.getWinesList();
         model.addAttribute("showProducts", products);
-        return "showProducts";
+        return "/showProducts";
     }
 
     @GetMapping( "/showProducts/{id}" )
     public String showProductsById(Model model, @PathVariable Long id) {
         WineDto product = winesService.getOneWine(id);
         model.addAttribute("showProducts", product);
-        return "showProducts";
+        return "/showProducts";
     }
 
     @GetMapping( "/addProduct" )
@@ -38,12 +38,12 @@ public class WineController {
     @PutMapping( "/updateProduct/{id}" )
     public String update(@ModelAttribute WineDto oldWine, @ModelAttribute WineDto newWine) {
         WineDto product = winesService.updateWine(oldWine.getId(), newWine);
-        return "redirect:showProducts";
+        return "redirect:/showProducts";
     }
 
     @DeleteMapping( "/deleteProduct/{id}" )
     public String delete(@ModelAttribute WineDto wine) {
         winesService.deleteProduct(wine.getId());
-        return "showProducts";
+        return "/showProducts";
     }
 }
