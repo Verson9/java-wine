@@ -26,8 +26,14 @@
             <td th:text="${currentWine.getRegion()}"></td>
             <td th:text="${currentWine.getCountry()}"></td>
             <td th:text="${currentWine.getPrice()}"></td>
-            <td th:href="/updateWine/${currentWine.getId()}">edytuj</td>
-            <td th:href="/deleteWine/${currentWine.getId()}">usuń</td>
+            <td >
+                <form action="/updateWineForm" method="post">
+                    <input type="submit" value="edytuj"/>
+                </form>
+            </td>
+            <td >
+<!--                <a th:href="/deleteWine/${currentWine.getId()}" >usuń</a>-->
+            </td>
         </tr>
         </tbody>
     </table>

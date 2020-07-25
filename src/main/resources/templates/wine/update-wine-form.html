@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie win</title>
@@ -12,31 +12,31 @@
                 <h1>Formularz dodawanie win</h1>
             </div>
             <div class="panel-body">
-                <form action="/addWine" method="post">
+                <form action="/addWine" method="post" th:class="${oldWine}">
 
                     <div class="form-group">
                         <label for="name">Nazwa Produktu</label>
-                        <input type="text" class="form-control" id="name" name="name"/>
+                        <input type="text" class="form-control" id="name" name="name" th:placeholder="${oldWine.getName()}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Opis Produktu</label>
-                        <input type="text" class="form-control" id="description" name="description" />
+                        <input type="text" class="form-control" id="description" name="description" th:placeholder="${oldWine.getDescription()}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="region">Region pochodzenia</label>
-                        <input type="text" class="form-control" id="region" name="region"/>
+                        <input type="text" class="form-control" id="region" name="region" th:placeholder="${oldWine.getRegion()}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="country">Kraj pochodzenia</label>
-                        <input type="text" class="form-control" id="country" name="country"/>
+                        <input type="text" class="form-control" id="country" name="country" th:placeholder="${oldWine.getCountry()}"/>
                     </div>
 
                     <div class="form-group">
                         <label for="price">Cena</label>
-                        <input type="number" class="form-control" id="price" name="price"/>
+                        <input type="number" class="form-control" id="price" name="price" th:placeholder="${oldWine.getPrice()}"/>
                     </div>
                     <input type="submit" class="btn btn-primary"/>
                 </form>

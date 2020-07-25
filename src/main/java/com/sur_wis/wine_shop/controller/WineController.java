@@ -39,16 +39,21 @@ public class WineController {
         winesService.saveWine(wineDto);
         return "/wine/show-wines";
     }
+    @PostMapping("/updateWineForm")
+    public String updateWineForm(Model model, @ModelAttribute WineDto oldWine){
+        model.addAttribute("oldWine", oldWine);
+        return "/wine/update-wine-form";
+    }
 
     @PutMapping( "/updateWine/{id}" )
     public String updateWine(@ModelAttribute WineDto oldWine, @ModelAttribute WineDto newWine) {
         winesService.updateWine(oldWine.getId(), newWine);
-        return "/wine/show-wines";
+        return "redirect:";
     }
 
     @DeleteMapping( "/deleteWine/{id}" )
-    public String deleteWine(@ModelAttribute WineDto wine) {
-        winesService.deleteProduct(wine.getId());
-        return "/wine/show-wines";
+    public String deleteWine(@PathVariable Long id) {
+        winesService.deleteProduct(id);
+        return "redirect:";
     }
 }
