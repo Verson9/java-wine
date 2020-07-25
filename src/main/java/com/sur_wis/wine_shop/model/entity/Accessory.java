@@ -4,9 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@ToString
 //@Setter
 //@Getter
 @Entity(name = "accessories")
@@ -28,6 +28,9 @@ public class Accessory {
 
     @Column(nullable = false, name = "price")
     int price;
+
+    public Accessory() {
+    }
 
     public Long getId() {
         return id;

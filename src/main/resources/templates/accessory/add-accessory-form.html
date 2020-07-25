@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie akcesoriów</title>
+</head>
+<body>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+                <h1>Formularz dodawanie akcesoriów</h1>
+            </div>
+            <div class="panel-body">
+                <form action="/addAccessory" method="post">
+
+                    <div class="form-group">
+                        <label for="name">Nazwa Produktu</label>
+                        <input type="text" class="form-control" id="name" name="name"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Opis Produktu</label>
+                        <input type="text" class="form-control" id="description" name="description"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Typ Produktu</label>
+                        <select id = "type" name="type">
+                            <option value="plug" >Korek</option>
+                            <option value="opener">Otwieracz</option>
+                            <option value="stand">Podstawka</option>
+                            <option value="glass">Szkło</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Cena</label>
+                        <input type="number" class="form-control" id="price" name="price"/>
+                    </div>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

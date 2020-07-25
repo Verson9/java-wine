@@ -22,4 +22,8 @@ public class UsersService {
         usersRepository.save(user);
     }
 
+    public UserDto login(UserDto userDto){
+        User user = usersRepository.findByEmailAndPassword(userDto.getEmail(), userDto.getPassword());
+        return userMapper.entityToDtoMapping(user);
+    }
 }

@@ -4,6 +4,7 @@ import com.sur_wis.wine_shop.model.dto.UserDto;
 import com.sur_wis.wine_shop.model.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ public class UserController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping(value = "/register")
+    @GetMapping(value = "/registerForm")
     public String registration() {
         return "/user/registration-form";
     }
@@ -27,13 +28,15 @@ public class UserController {
 
     @GetMapping(value = "/login")
     public String loginion() {
-        return "log-in";
+        return "user/log-in-form";
     }
 
     @PostMapping(value = "/loginUser")
-    public String login(@ModelAttribute UserDto userDto) {
-        usersService.register(userDto);
-        return "redirect:/index1.html";
+    public String login(Model model, @ModelAttribute UserDto userDto) {
+//        model.addAttribute(usersService.login(userDto));
+        usersService.login(userDto);
+        return "redirect:";
+
     }
 
 

@@ -29,6 +29,11 @@ public class WineController {
         return "/showWines";
     }
 
+    @GetMapping("/addWineForm")
+    public String addAccessory() {
+        return "/wine/add-wine-form";
+    }
+
     @GetMapping( "/addWine" )
     public String createWine(@ModelAttribute WineDto wineDto) {
         winesService.saveWine(wineDto);

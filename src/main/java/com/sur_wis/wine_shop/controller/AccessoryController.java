@@ -30,10 +30,15 @@ public class AccessoryController {
         return "redirect:/showAccessories";
     }
 
-    @GetMapping( "/addAccessory" )
+    @GetMapping("/addAccessoryForm")
+    public String addAccessory() {
+        return "/accessory/add-accessory-form";
+    }
+
+    @PostMapping( "/addAccessory" )
     public String createAccessory(@ModelAttribute AccessoryDto accessoryDto) {
         accessoriesService.saveAccessory(accessoryDto);
-        return "redirect:/showAccessories";
+        return "redirect:";
     }
 
     @PutMapping( "/updateAccessory/{id}" )
