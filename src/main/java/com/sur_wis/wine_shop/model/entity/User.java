@@ -8,8 +8,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 //@Setter
 //@Getter
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
 @Entity(name = "users")
 public class User implements Serializable {
 

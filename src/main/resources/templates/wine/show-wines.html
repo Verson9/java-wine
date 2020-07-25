@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
 </head>
 <body>
 
+<!--<form action="#"  th:object="${showWines}" method="post">-->
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Region</th>
+            <th scope="col">Country</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="currentWine, stat: ${showWines} ">
+            <td th:text="${currentWine.getId()}"></td>
+            <td th:text="${currentWine.getName()}"></td>
+            <td th:text="${currentWine.getDescription()}"></td>
+            <td th:text="${currentWine.getRegion()}"></td>
+            <td th:text="${currentWine.getCountry()}"></td>
+            <td th:text="${currentWine.getPrice()}"></td>
+            <td th:href="/updateWine/${currentWine.getId()}">edytuj</td>
+            <td th:href="/deleteWine/${currentWine.getId()}">usuń</td>
+        </tr>
+        </tbody>
+    </table>
+<!--</form>-->
 </body>
 </html>

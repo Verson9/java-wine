@@ -17,16 +17,16 @@ public class WineController {
 
     @GetMapping( "/showWines" )
     public String showWines(Model model) {
-        List<WineDto> products = winesService.getWinesList();
-        model.addAttribute("/showWines", products);
-        return "/showWines";
+        List<WineDto> winesList = winesService.getWinesList();
+        model.addAttribute("showWines", winesList);
+        return "/wine/show-wines";
     }
 
-    @GetMapping( "/showWines/{id}" )
+    @PostMapping( "/showWines/{id}" )
     public String showWineById(Model model, @PathVariable Long id) {
         WineDto product = winesService.getOneWine(id);
         model.addAttribute("/showWines", product);
-        return "/showWines";
+        return "/wine/show-wines";
     }
 
     @GetMapping("/addWineForm")
@@ -37,18 +37,18 @@ public class WineController {
     @GetMapping( "/addWine" )
     public String createWine(@ModelAttribute WineDto wineDto) {
         winesService.saveWine(wineDto);
-        return "redirect:/showWines";
+        return "/wine/show-wines";
     }
 
     @PutMapping( "/updateWine/{id}" )
     public String updateWine(@ModelAttribute WineDto oldWine, @ModelAttribute WineDto newWine) {
         winesService.updateWine(oldWine.getId(), newWine);
-        return "redirect:/showWines";
+        return "/wine/show-wines";
     }
 
     @DeleteMapping( "/deleteWine/{id}" )
     public String deleteWine(@ModelAttribute WineDto wine) {
         winesService.deleteProduct(wine.getId());
-        return "/showWines";
+        return "/wine/show-wines";
     }
 }
